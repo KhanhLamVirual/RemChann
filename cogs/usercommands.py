@@ -24,12 +24,10 @@ class UserCommands(commands.Cog):
         if member == None:
             embed.add_field(name=f"{ctx.author.display_name} Avatar's ", value=None, inline=True)
             embed.set_image(url=ctx.author.avatar)
-            embed.set_footer(text=f"Link Download:[`Here`]({ctx.author.avatar})")
             embed.set_thumbnail(url=ctx.author.avatar)
         else:
             embed.add_field(name=f"{member.display_name} Avatar's ", value=None, inline=True)
             embed.set_image(url=member.avatar)
-            embed.set_footer(text=f"Link Download:[`Here`]({member.avatar})")
             embed.set_thumbnail(url=member.avatar)
         await ctx.reply(embed = embed)
 def setup(bot):
