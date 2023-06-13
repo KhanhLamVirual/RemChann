@@ -5,6 +5,11 @@ from api import token, command_prefix
 
 bot = Bot(command_prefix=command_prefix, intents=discord.Intents.all())
 
+@bot.command()
+async def botstop(ctx):
+    await ctx.send("Bot Stopped")
+    exit()
+
 for f in os.listdir('./cogs'):
     if f.endswith('.py'):
         bot.load_extension(f"cogs.{f[:-3]}")
