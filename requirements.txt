@@ -1,0 +1,4 @@
+discord.py
+discord.py[voice]
+py-cord
+pycord
