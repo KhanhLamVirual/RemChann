@@ -20,7 +20,7 @@ class UserCommands(commands.Cog):
     @commands.command()
     async def avatar(self, ctx, member:discord.Member=None):
         embed = discord.Embed(title="Avatar", color=discord.Color.random())
-        embed.set_author(name=ctx.author.display_name, icon_url=ctx.author.avaatr)
+        embed.set_author(name=ctx.author.display_name, icon_url=ctx.author.avatar)
         if member == None:
             embed.add_field(name=f"{ctx.author.display_name} Avatar's ", value=None, inline=True)
             embed.set_image(url=ctx.author.avatar)
