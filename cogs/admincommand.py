@@ -24,5 +24,20 @@ class AdminCommand(commands.Cog):
 
         await ctx.reply(embed=embed)
 
+    @commands.command()
+    @has_role("Owner")
+    async def remove(self, ctx, role:discord.Role=None, member:discord.Member=None):
+        embed = discord.Embed(title="Remove Role", color=discord.Color.random())
+        embed.set_author(name=ctx.author.display_name, icon_url=ctx.author.avatar)
+        if role != None:
+            if member != None:
+                await member.remove_roles(role)
+                embed.add_field(name="Success", value=f"Removed Role {role} From {member.display_name}", inline=True)
+            else:
+                embed.add_field(name="Missing", value="Missing Member", inline=True)
+        else:
+            embed.add_field(name="Missing", value="Missing Role", inline=True)
+        await ctx.reply(embed=embed)
+
 def setup(bot):
     bot.add_cog(AdminCommand(bot))
